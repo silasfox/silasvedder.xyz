@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Silas Vedder's Homepage</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Killmenu</h1>
+    <p>The following one-liner uses <a href='https://tools.suckless.org/dmenu/'>dmenu</a> to choose one of the currently running processes.
+       The chosen process will be kill -9ed.</p>
+    <pre>kill -9 $(ps ax | dmenu -l 30 | cut -d' ' -f2)</pre>
+
+    <a href="software.html">Get back</a>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Frustration with dys-functional C++</title>
+<link rel='stylesheet' type='text/css' href='../style.css'>
+<meta charset='utf-8'/>
+</head>
+<body>
+<h1>Frustration with dys-functional C++</h1>
+<small>[<a href='../2021.html#frustration-with-dysfunctional-c'>link</a>&mdash;<a href='frustration-with-dysfunctional-c.html'>standalone</a>]</small>
+<p>C++ is the only language I know that punishes you for trying to program in a functional style. Really, it does.</p>
+
+<p>Just have a look at <code>std::transform</code>, which is the C++ version of <code>map</code>.
+If you try to map a function over, say, a <code>std::vector&lt;int&gt;</code>, you get this:</p>
+
+<code>std::vector&lt;int&gt; foo{ 1, 2, 3 };<br />
+
+std::vector&lt;int&gt; result(3);<br />
+
+std::transform(foo.begin(), foo.end(), result.begin(), [](auto &amp;x) { return x + 42 ; });<br /></code>
+
+<p>First of, this isn't really functional. <code>std::transform</code> is modifying the state of the <code>result</code>-vector
+instead of returning anything useful. Secondly, the syntax is a nightmare. Compare with this bit of C# that does the same thing:</p>
+
+<code>var foo = new List&lt;int&gt;{ 1, 2, 3 };<br />
+
+var result = foo.Select(x =&gt; x + 42).ToList();<br /></code>
+
+<p>That is not only much more readable (apart from the fact that C# also chose the wrong name for <code><strong>map</strong></code>,
+but also shorter. Plus, <code>Select</code> is an actual function that doesn't modify state, but just gives an output that depends on its input.</p>
+
+<p>Of course, a still better (and more readable) choice is Lisp, e.g. in Scheme this would translate to:</p>
+
+<code>(define foo (list 1 2 3))<br />
+
+(define result (map (lambda (x) (+ x 42)) foo))<br /></code>
+
+<p>It is obvious that <code>map</code> is the <code>map</code> algorithm, the <code>lambda</code> is called <code>lambda</code>,
+which is a bit verbose but quite readable, and all in all it's <em>concise</em>.</p>
+
+<a href="../blogindex.html">Go back</a><br />
+<footer>by <strong><a href='https://silasvedder.xyz/'>Silas</a></strong></footer>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+body {
+	background-color: #161616;
+	margin:40px auto;
+	max-width:75%;
+	font-size:18px;
+}
+
+h1 {
+	text-align: center;
+	color: #55aa22;
+}
+
+h2 {
+	color: #449911;
+}
+
+h3 {
+	color: #338800;
+}
+
+h4 {
+	color:#227700;
+}
+
+p, li {
+	color: #669022;
+}
+
+a {
+	color: #886622;
+}
+
+div {
+	color: #669022;
+}
